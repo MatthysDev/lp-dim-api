@@ -1,4 +1,3 @@
-var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
@@ -7,7 +6,6 @@ var logger = require("morgan");
 var studentRouter = require("./routes/student");
 
 var app = express();
-
 var mongoose = require("mongoose");
 
 var dev_db_url =
@@ -22,7 +20,6 @@ mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
